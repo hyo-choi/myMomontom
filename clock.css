@@ -1,0 +1,49 @@
+:root {
+	--main-color: indianred;
+}
+
+body {
+	background-color: darkseagreen;
+}
+
+.js-clock {
+	text-align: center;
+}
+
+.clock {
+	display: inline-block;
+	text-align: center;
+}
+
+.form,
+.greetings {
+	display: none;
+	text-align: center;
+}
+
+.clock,
+.greetings,
+.form {
+	color: var(--main-color);
+	transition: 0.3s ease-in-out;
+}
+
+.clock:hover,
+.greetings:hover,
+.form:hover {
+	color:lightcoral;
+	transition: 0.3s ease-in-out;
+}
+
+input {
+	all: unset;
+	border-bottom: var(--main-color) solid 1px;
+}
+
+input::placeholder {
+	all: unset;
+}
+
+.showing {
+	display: block;
+}
