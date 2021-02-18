@@ -1,5 +1,6 @@
 :root {
 	--main-color:steelblue;
+	--transition-property: 0.3s ease-in-out;
 }
 
 body {
@@ -18,7 +19,6 @@ body {
 .greetingForm,
 .greeting {
 	display: none;
-	margin-bottom: 20px;
 	text-align: center;
 }
 
@@ -27,7 +27,7 @@ body {
 }
 
 .toDoForm {
-	display: block;
+	display: inline-block;
 	text-align: center;
 }
 
@@ -36,7 +36,7 @@ body {
 .greetingForm,
 .toDoForm {
 	color: var(--main-color);
-	transition: 0.3s ease-in-out;
+	transition: var(--transition-property);
 }
 
 .clock:hover,
@@ -44,12 +44,16 @@ body {
 .greetingForm:hover,
 .toDoForm:hover {
 	opacity: 50%;
-	transition: 0.3s ease-in-out;
+}
+
+button:hover {
+	opacity: 100%;
 }
 
 input {
 	all: unset;
 	border-bottom: var(--main-color) solid 1px;
+	margin-bottom: 15px;
 }
 
 input::placeholder {
@@ -58,11 +62,13 @@ input::placeholder {
 
 button {
 	all: unset;
+	opacity: 30%;
 	margin-right: 5px;
+	transition: var(--transition-property);
 }
 
 ul, li {
 	list-style: none;
 	padding-left: 0px;
-	color:cornflowerblue;
+	color: var(--main-color);
 }
