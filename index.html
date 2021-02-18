@@ -8,15 +8,25 @@
 </head>
 
 <body>
-	<div class="js-clock">
-		<h1 class="clock">00:00</h1>
+	<div class="centerWrap">
+		<div class="js-clock">
+			<h1 class="clock">00:00</h1>
+		</div>
+		<form class="js-greetingForm greetingForm">
+			<input type="text" placeholder="What is your name?">
+		</form>
+		<h4 class="js-greeting greeting"></h4>
+		<form class="js-toDoForm toDoForm">
+			<input type="text" placeholder="Write a to do">
+		</form>
+		<ul class="js-toDoList">
+
+		</ul>
 	</div>
-	<form class="js-form form">
-		<input type="text" placeholder="What is your name?">
-	</form>
-	<h2 class="js-greetings greetings"></h2>
-	<script src="clock.js"></script>
+	<script src="clock.js">
+	</script>
 	<script src="greeting.js"></script>
+	<script src="todo.js"></script>
 </body>
 
 </html>

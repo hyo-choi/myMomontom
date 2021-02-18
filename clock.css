@@ -1,12 +1,12 @@
 :root {
-	--main-color: indianred;
+	--main-color:steelblue;
 }
 
 body {
-	background-color: darkseagreen;
+	background-color:mintcream;
 }
 
-.js-clock {
+.centerWrap {
 	text-align: center;
 }
 
@@ -15,23 +15,35 @@ body {
 	text-align: center;
 }
 
-.form,
-.greetings {
+.greetingForm,
+.greeting {
 	display: none;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.showing {
+	display: inline-block;
+}
+
+.toDoForm {
+	display: block;
 	text-align: center;
 }
 
 .clock,
-.greetings,
-.form {
+.greeting,
+.greetingForm,
+.toDoForm {
 	color: var(--main-color);
 	transition: 0.3s ease-in-out;
 }
 
 .clock:hover,
-.greetings:hover,
-.form:hover {
-	color:lightcoral;
+.greeting:hover,
+.greetingForm:hover,
+.toDoForm:hover {
+	opacity: 50%;
 	transition: 0.3s ease-in-out;
 }
 
@@ -44,6 +56,13 @@ input::placeholder {
 	all: unset;
 }
 
-.showing {
-	display: block;
+button {
+	all: unset;
+	margin-right: 5px;
+}
+
+ul, li {
+	list-style: none;
+	padding-left: 0px;
+	color:cornflowerblue;
 }
