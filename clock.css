@@ -1,24 +1,42 @@
 :root {
-	--main-color:steelblue;
+	--main-color:white;
 	--transition-property: 0.3s ease-in-out;
 }
 
 body {
-	background-color:mintcream;
+	background-color: black;
 }
 
+input {
+	all: unset;
+	border-bottom: var(--main-color) solid 1px;
+	margin-bottom: 15px;
+}
+
+input::placeholder {
+	all: unset;
+}
+
+button {
+	all: unset;
+	opacity: 50%;
+	margin-right: 5px;
+}
 .centerWrap {
 	text-align: center;
 }
 
 .clock {
 	display: inline-block;
+	font-size: 40pt;
+	margin-bottom: 10px;
 	text-align: center;
 }
 
 .greetingForm,
 .greeting {
 	display: none;
+	margin-top: 10px;
 	text-align: center;
 }
 
@@ -34,15 +52,14 @@ body {
 .clock,
 .greeting,
 .greetingForm,
-.toDoForm {
+.toDoForm,
+button {
 	color: var(--main-color);
+	text-shadow: 1px 1px 5px #000;
 	transition: var(--transition-property);
 }
 
-.clock:hover,
-.greeting:hover,
-.greetingForm:hover,
-.toDoForm:hover {
+.clock:hover {
 	opacity: 50%;
 }
 
@@ -50,25 +67,27 @@ button:hover {
 	opacity: 100%;
 }
 
-input {
-	all: unset;
-	border-bottom: var(--main-color) solid 1px;
-	margin-bottom: 15px;
-}
-
-input::placeholder {
-	all: unset;
-}
-
-button {
-	all: unset;
-	opacity: 30%;
-	margin-right: 5px;
-	transition: var(--transition-property);
-}
-
 ul, li {
 	list-style: none;
 	padding-left: 0px;
+	text-shadow: 1px 1px 5px #000;
 	color: var(--main-color);
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+.bgImage {
+	position:absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height:100%;
+	z-index: -1;
+	animation: fadeIn 0.5s linear;
 }

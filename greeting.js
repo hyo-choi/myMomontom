@@ -1,6 +1,7 @@
 const greetingForm = document.querySelector(".js-greetingForm"),
 	greetingInput = greetingForm.querySelector("input"),
-	greeting = document.querySelector(".js-greeting");
+	greeting = document.querySelector(".js-greeting"),
+	nameChange = document.querySelector(".js-rename");
 
 const USER_LS = "currentUser",
 	SHOWING_CN = "showing";
@@ -37,8 +38,14 @@ function loadName() {
 	}
 }
 
+function deleteName() {
+	localStorage.removeItem(USER_LS);
+	location.reload();
+}
+
 function init() {
 	loadName();
+	nameChange.addEventListener("click", deleteName);
 }
 
 init();
