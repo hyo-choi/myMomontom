@@ -7,6 +7,19 @@ body {
 	background-color: black;
 }
 
+footer {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+a {
+	text-decoration: none;
+	color:var(--main-color);
+	text-shadow: 1px 1px 5px #000;
+	opacity: 50%;
+	transition: var(--transition-property);
+}
+
 input {
 	all: unset;
 	border-bottom: var(--main-color) solid 1px;
@@ -19,9 +32,11 @@ input::placeholder {
 
 button {
 	all: unset;
+	cursor: pointer;
 	opacity: 50%;
 	margin-right: 5px;
 }
+
 .centerWrap {
 	text-align: center;
 }
@@ -63,7 +78,8 @@ button {
 	opacity: 50%;
 }
 
-button:hover {
+button:hover,
+a:hover {
 	opacity: 100%;
 }
 
@@ -83,7 +99,7 @@ ul, li {
 	}
 }
 .bgImage {
-	position:absolute;
+	position:fixed;
 	top:0;
 	left:0;
 	width: 100%;
