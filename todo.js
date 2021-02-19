@@ -11,9 +11,11 @@ function renewList() {
 }
 
 function cleanToDo() {
-	toDos.length = 0;
-	saveToDos();
-	renewList();
+	if (toDos.length != 0) {
+		toDos.length = 0;
+		saveToDos();
+		renewList();
+	}
 }
 
 function deleteToDo(event) {

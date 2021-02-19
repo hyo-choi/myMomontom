@@ -17,6 +17,7 @@ function handelSubmit(event) {
 }
 
 function askForName() {
+	greetingInput.value = "";
 	greetingForm.classList.add(SHOWING_CN);
 	greetingForm.addEventListener("submit", handelSubmit);
 }
@@ -24,6 +25,7 @@ function askForName() {
 function greetingToName(text) {
 	greetingForm.classList.remove(SHOWING_CN);
 	greeting.classList.add(SHOWING_CN);
+	nameChange.classList.add(SHOWING_CN);
 	greeting.innerText = `Hello, ${text}`;
 }
 
@@ -40,7 +42,9 @@ function loadName() {
 
 function deleteName() {
 	localStorage.removeItem(USER_LS);
-	location.reload();
+	greeting.classList.remove(SHOWING_CN);
+	nameChange.classList.remove(SHOWING_CN);
+	askForName();
 }
 
 function init() {

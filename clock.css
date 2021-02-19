@@ -34,9 +34,9 @@ button {
 }
 
 .greetingForm,
-.greeting {
+.greeting,
+.rename {
 	display: none;
-	margin-top: 10px;
 	text-align: center;
 }
 
