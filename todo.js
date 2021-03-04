@@ -3,40 +3,38 @@ const toDoList = document.querySelector(".js-toDoList"),
 	toDoInput = toDoForm.querySelector("input"),
 	toDoClean = document.querySelector(".js-toDoClean");
 
-const TODOS_LS = "toDos",
-	toDos = [];
+const TODOS_LS = "toDos";
 
-function renewList() {
-	location.reload();
-}
+let newId,
+	toDos = [];
 
 function cleanToDo() {
 	if (toDos.length != 0) {
-		toDos.length = 0;
+		const toDoLi = toDoList.querySelectorAll("li");
+		toDoLi.forEach(function (toDo) {
+			toDo.remove();
+		});
+		toDos = [];
 		saveToDos();
-		renewList();
 	}
 }
 
 function deleteToDo(event) {
 	const btn = event.target;
 	const li = btn.parentNode;
-
 	toDoList.removeChild(li);
-	toDos.splice(li.id, 1);
-	let id = 0;
-	toDos.forEach(function (toDoObj) {
-		toDoObj.id = id++;
+	const cleanToDos = toDos.filter(function (toDo) {
+		return toDo.id !== parseInt(li.id);
 	});
+	toDos = cleanToDos;
 	saveToDos();
-	renewList();
 }
 
 function saveToDos() {
 	localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
 }
 
-function makeToDo(text, newId) {
+function makeToDo(text) {
 	const li = document.createElement("li");
 	const delBtn = document.createElement("button");
 	const span = document.createElement("span");
@@ -52,6 +50,7 @@ function makeToDo(text, newId) {
 		text: text,
 		id: newId
 	};
+	newId++;
 	toDos.push(toDoObj);
 	saveToDos();
 }
@@ -60,7 +59,7 @@ function addToDoList(event) {
 	event.preventDefault();
 	const currentValue = toDoInput.value;
 	if (currentValue !== "") {
-		makeToDo(currentValue, toDos.length);
+		makeToDo(currentValue);
 	}
 	toDoInput.value = "";
 }
@@ -69,15 +68,14 @@ function loadToDos() {
 	const loadedToDos = localStorage.getItem(TODOS_LS);
 	if (loadedToDos !== null) {
 		const parsedToDos = JSON.parse(loadedToDos);
-		let id = 0;
 		parsedToDos.forEach(function (toDoObj) {
-			toDoObj.id = id;
-			makeToDo(toDoObj.text, id++);
+			makeToDo(toDoObj.text);
 		});
 	}
 }
 
 function init() {
+	newId = 0;
 	loadToDos();
 	toDoForm.addEventListener("submit", addToDoList);
 	toDoClean.addEventListener("click", cleanToDo);
