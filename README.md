@@ -9,6 +9,7 @@ My first vanilla JS clone coding project
 
 ## Features / 구현한 기능
 
+- 현재 시간 출력
 - 사용자 이름 저장 및 변경
 - to-do list 추가 / 삭제 / 초기화
 - 새로고침 시 랜덤 배경 출력
